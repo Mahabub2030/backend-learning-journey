@@ -13,9 +13,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/Mahabub2030/backend-learning-journey/issues"
   },
-  "homepage": "https://github.com/Mahabub2030/backend-learning-journey#readme"
+  "homepage": "https://github.com/Mahabub2030/backend-learning-journey#readme",
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
 }
