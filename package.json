@@ -1,0 +1,21 @@
+{
+  "name": "backend-learning-journey",
+  "version": "1.0.0",
+  "description": "Welcome to my **Backend Learning Journey**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mahabub2030/backend-learning-journey.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Mahabub2030/backend-learning-journey/issues"
+  },
+  "homepage": "https://github.com/Mahabub2030/backend-learning-journey#readme"
+}
