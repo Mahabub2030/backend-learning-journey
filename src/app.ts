@@ -1,12 +1,41 @@
-import app from "./app";
-import config from "./config";
-import { initDB } from "./db";
+import express, {
+  type Application,
+  type Request,
+  type Response,
+} from "express";
+import { userRoute } from "./modules/users/user.route";
+import { profileRoute } from "./modules/profile/profile.route";
+import { authRoute } from "./modules/auth/auth.route";
+import logger from "./middleware/logger";
+import globalErrorHandler from "./middleware/globalErrorHandler";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+const app: Application = express();
 
-const main = async () => {
-  initDB();
-  app.listen(config.port, () => {
-    console.log(`The Express server is running on the port ${config.port}`);
-  });
+const corsOptions = {
+  origin: ["http://localhost:3000"],
+  optionsSuccessStatus: 200,
 };
+app.use(cors(corsOptions));
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.text());
+app.use(express.urlencoded({ extended: true }));
+app.use(logger);
 
-main();
+app.use("/api/v1/users", userRoute);
+app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/profiles", profileRoute);
+
+app.get("/", (req: Request, res: Response) => {
+  res.status(200).json({
+    success: true,
+    message: "This is root route",
+    author: "PH",
+  });
+});
+
+// Global Error Handling Middleware
+app.use(globalErrorHandler);
+
+export default app;
